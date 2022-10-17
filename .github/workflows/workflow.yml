@@ -30,6 +30,4 @@ jobs:
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.ISSUE_OPS_TEST }}
-          script: |
-            console.log(context)
-            console.log(github-token)
+        run: echo print something
