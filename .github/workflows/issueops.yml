@@ -8,18 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.issue.labels.*.name, 'issueops')
     steps:
-        
-      - name: Print Context
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.ISSUE_OPS_TEST }}
-          script: |
-            console.log(context)
             
       - name: Create GitHub repo
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.ISSUE_OPS_TEST }}
+          github-token: ${{ secrets.ISSUE_OPS_2 }}
           script: |            
             bodySplit = context.payload.issue.body.split("\n")
             console.log("New repository name: " + bodySplit[2])
