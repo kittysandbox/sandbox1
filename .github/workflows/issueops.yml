@@ -17,17 +17,17 @@ jobs:
           script: |            
             bodySplit = context.payload.issue.body.split("\r\n")
             console.log(bodySplit)
-            console.log("New repository name: " + bodySplit[1])
-            console.log("Template Repository: " + bodySplit[4])
-            console.log("Team: " + bodySplit[7])
-            console.log("Enable Issue: " +  bodySplit[10])
-            console.log("Allow Squash Merge: " +  bodySplit[13])
+            console.log("New repository name: " + bodySplit[0].split("?"))
+            console.log("Template Repository: " + bodySplit[1].split("?"))
+            console.log("Team: " + bodySplit[2].split("?"))
+            console.log("Enable Issue: " +  bodySplit[3].split("?"))
+            console.log("Allow Squash Merge: " +  bodySplit[4].split("?"))
 
-            let newRepo = bodySplit[1]
-            let templateRepo = bodySplit[4]
-            let teams = bodySplit[7].split(",")
-            let enableIssue = bodySplit[10]
-            let enableSquashMerge = bodySplit[13]
+            let newRepo = bodySplit[0].split("?")
+            let templateRepo = bodySplit[1].split("?")
+            let teams = bodySplit[2].split("?")
+            let enableIssue = bodySplit[3].split("?")
+            let enableSquashMerge = bodySplit[4].split("?")
             
             console.log("Calling GitHub API to create new repo: " + newRepo + " Template Repo: " + templateRepo + " Teams: " + teams)
             
