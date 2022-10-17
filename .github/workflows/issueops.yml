@@ -15,7 +15,8 @@ jobs:
         with:
           github-token: ${{ secrets.ISSUE_OPS_6 }}
           script: |            
-            bodySplit = context.payload.issue.body.split("\n")
+            bodySplit = context.payload.issue.body.split("\r\n")
+            console.log(bodySplit)
             console.log("New repository name: " + bodySplit[1])
             console.log("Template Repository: " + bodySplit[4])
             console.log("Team: " + bodySplit[7])
