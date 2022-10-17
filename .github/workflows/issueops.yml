@@ -33,7 +33,6 @@ jobs:
             
             console.log("New repo: " + newRepo + " Template Repo: " + templateRepo + " Teams: " + teams)
             
-            # This step creates a new repo with the template
             try {
               await github.rest.repos.createUsingTemplate({
                 template_owner: context.payload.organization.login,
@@ -48,7 +47,6 @@ jobs:
                 throw err 
             }
             
-            # This step updates visibility to private, enables issue and project, and update squash-merge setting
             try {
               await github.rest.repos.update({
                 owner: context.payload.organization.login,
@@ -62,7 +60,6 @@ jobs:
                 throw err 
             }
             
-            # This step updates branch protection for selected branch
             try {
               await github.rest.repos.updateBranchProtection({
                 "owner": context.payload.organization.login,
@@ -77,7 +74,6 @@ jobs:
                 throw err 
             }
             
-            # This step grants a selected team with repo access
             try {
               await github.rest.teams.addOrUpdateRepoPermissionsInOrg({
                 org: context.payload.organization.login,
@@ -90,7 +86,6 @@ jobs:
                 throw err 
             }
             
-            # This step updates the issue with completion status
             try { 
               await github.rest.issues.createComment({
               issue_number: context.issue.number,
