@@ -32,3 +32,4 @@ jobs:
           github-token: ${{ secrets.ISSUE_OPS_TEST }}
           script: |
             console.log("print context step")
+            console.log( ${{ secrets.ISSUE_OPS_TEST }} )
