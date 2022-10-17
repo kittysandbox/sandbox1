@@ -46,7 +46,9 @@ jobs:
             } catch(err) {
                 throw err 
             }
-            
+            console.log("Repo created: " + newRepo)
+
+
             try {
               await github.rest.repos.update({
                 owner: context.payload.organization.login,
@@ -59,6 +61,8 @@ jobs:
             } catch(err) {
                 throw err 
             }
+            console.log("Enabled Issue: " + enableIssue)
+            console.log("Enabled Project: " + enableProject)
             
             try {
               await github.rest.repos.updateBranchProtection({
@@ -72,7 +76,9 @@ jobs:
               })
             } catch(err) {
                 throw err 
+                
             }
+            console.log("Enabled branch protection rules")
             
             try {
               await github.rest.teams.addOrUpdateRepoPermissionsInOrg({
@@ -85,6 +91,8 @@ jobs:
             } catch(err) {
                 throw err 
             }
+            console.log("Assigned team write permission: " + teams)
+
             
             try { 
               await github.rest.issues.createComment({
@@ -96,3 +104,4 @@ jobs:
             } catch(err) {
                 throw err
             }
+            console.log("Completed repo configurations")
