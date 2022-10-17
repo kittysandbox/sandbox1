@@ -80,7 +80,7 @@ jobs:
                 owner: context.payload.organization.login,
                 repo: newRepo,
                 team_slug: teams,
-                permission: 'admin'
+                permission: 'write'
               })
             } catch(err) {
                 throw err 
