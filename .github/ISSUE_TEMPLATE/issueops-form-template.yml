@@ -1,4 +1,4 @@
-name: Create repositories using IssueOps
+name: Create repository using Issue Form
 
 description: This IssueOps takes the input from an user to create a repository based on Template Repository and safe settings
 
