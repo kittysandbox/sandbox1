@@ -41,7 +41,7 @@ body:
       description: Type in the initial team that you want to apply the 'write' permission
       options: # list of existing teams in the organisation
         - team-ai-developers
-        - team-u-developers
+        - team-ux-developers
         - team-iot-developers
     validations:
       required: true
