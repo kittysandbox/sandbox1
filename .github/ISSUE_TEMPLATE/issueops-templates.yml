@@ -1,14 +1,20 @@
 name: Create repositories using IssueOps
+
 description: This IssueOps takes the input from an user to create a repository based on Template Repository and safe settings
+
 title: "[IssueOps]: "
+
 labels: ["issueops", "triage"]
+
 assignees:
-  - kittychiu
+  - octocat
+
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this report!
+        Thanks for taking the time to fill out this issue!
+
   - type: input
     id: new-repository
     attributes:
@@ -17,6 +23,7 @@ body:
       placeholder: ex. new-repository
     validations:
       required: true
+
   - type: dropdown
     id: template-repository
     attributes:
@@ -26,11 +33,12 @@ body:
         - repo-template1
     validations:
       required: true
+
   - type: dropdown
     id: team
     attributes:
       label: Team Permission
-      description: Type in the teams that you want to apply the admin permission. Separate team names by comma
+      description: Type in the initial team that you want to apply the 'write' permission
       options: # list of existing teams in the organisation
         - team-ai-developers
         - team-u-developers
