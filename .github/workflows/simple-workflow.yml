@@ -23,6 +23,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
+      - name: Print Context
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.ISSUE_OPS_TEST }}
+          script: |
+            console.log(github-token)
+
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
