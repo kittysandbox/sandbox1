@@ -12,8 +12,8 @@ jobs:
       - name: Print Context
         uses: actions/github-script@v4
         with:
+          github-token: ${{ secrets.ISSUE_OPS_TEST }}
           script: |
-            github-token: ${{ secrets.ISSUE_OPS_TEST }}
             console.log(context)
             console.log(github-token)
             
