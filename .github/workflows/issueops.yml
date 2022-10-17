@@ -16,20 +16,26 @@ jobs:
           github-token: ${{ secrets.ISSUE_OPS_6 }}
           script: |            
             bodySplit = context.payload.issue.body.split("\r\n")
-            console.log(bodySplit)
-            console.log("New repository name: " + bodySplit[0].split("?"))
-            console.log("Template Repository: " + bodySplit[1].split("?"))
-            console.log("Team: " + bodySplit[2].split("?"))
-            console.log("Enable Issue: " +  bodySplit[3].split("?"))
-            console.log("Allow Squash Merge: " +  bodySplit[4].split("?"))
+            let newRepoStr = bodySplit[0].split("?")
+            let templateRepoStr = bodySplit[1].split("?")
+            let teamStr = bodySplit[2].split("?")
+            let enableIssueStr = bodySplit[3].split("?")
+            let enableSquashMergeStr = bodySplit[4].split("?")
 
-            let newRepo = bodySplit[0].split("?")
-            let templateRepo = bodySplit[1].split("?")
-            let teams = bodySplit[2].split("?")
-            let enableIssue = bodySplit[3].split("?")
-            let enableSquashMerge = bodySplit[4].split("?")
+            let newRepo = newRepoStr[1]
+            let templateRepo = templateRepoStr[1]
+            let teams = teamStr[1]
+            let enableIssue = enableIssueStr[1]
+            let enableSquashMerge = enableSquashMergeStr[1]
+
+            console.log(bodySplit)
+            console.log("New repository name: " + newRepo)
+            console.log("Template Repository: " + templateRepo)
+            console.log("Team: " + teams)
+            console.log("Enable Issue: " +  enableIssue)
+            console.log("Allow Squash Merge: " +  enableSquashMerge)
             
-            console.log("Calling GitHub API to create new repo: " + newRepo + " Template Repo: " + templateRepo + " Teams: " + teams)
+            console.log("Calling GitHub API to create new repo: " + newRepo + " Template Repo: " + templateRepo + " Team: " + teams)
             
             try {
               await github.rest.repos.createUsingTemplate({
