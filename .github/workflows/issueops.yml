@@ -15,14 +15,12 @@ jobs:
           github-token: ${{ secrets.ISSUE_OPS_TEST }}
           script: |
             console.log(context)
-            console.log(github-token)
             
       - name: Create GitHub repo
         uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.ISSUE_OPS_TEST }}
-          script: |
-            
+          script: |            
             bodySplit = context.payload.issue.body.split("\n")
             console.log("New repository name: " + bodySplit[2])
             console.log("Template Repository: " + bodySplit[6])
