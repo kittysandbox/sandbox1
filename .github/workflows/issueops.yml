@@ -22,11 +22,11 @@ jobs:
             let enableIssueStr = bodySplit[3].split("?")
             let enableSquashMergeStr = bodySplit[4].split("?")
 
-            let newRepo = newRepoStr[1]
-            let templateRepo = templateRepoStr[1]
-            let teams = teamStr[1]
-            let enableIssue = enableIssueStr[1]
-            let enableSquashMerge = enableSquashMergeStr[1]
+            let newRepo = newRepoStr[1].trim()
+            let templateRepo = templateRepoStr[1].trim()
+            let teams = teamStr[1].trim()
+            let enableIssue = enableIssueStr[1].trim()
+            let enableSquashMerge = enableSquashMergeStr[1].trim()
 
             console.log(bodySplit)
             console.log("New repository name: " + newRepo)
