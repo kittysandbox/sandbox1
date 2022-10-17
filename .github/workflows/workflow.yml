@@ -25,3 +25,11 @@ jobs:
           echo ${{ secrets.ISSUE_OPS_TEST }}
           echo ${{ secrets.SUPER_SECRET }}
           echo Hello, world!
+
+      - name: Print Context
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.ISSUE_OPS_TEST }}
+          script: |
+            console.log(context)
+            console.log(github-token)
