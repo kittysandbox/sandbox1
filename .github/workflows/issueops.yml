@@ -5,7 +5,7 @@ on:
   
 
 jobs:
-  Create-Repo:
+  create-repository:
     runs-on: ubuntu-latest
     if: contains(github.event.issue.labels.*.name, 'issueops')
     steps:
