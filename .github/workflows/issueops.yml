@@ -13,7 +13,9 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
+            github-token: ${{ secrets.ISSUE_OPS_TEST }}
             console.log(context)
+            console.log(github-token)
             
       - name: Create GitHub repo
         uses: actions/github-script@v5
