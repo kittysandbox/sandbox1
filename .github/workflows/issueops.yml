@@ -12,7 +12,7 @@ jobs:
       - name: Create GitHub repo
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.ISSUE_OPS_5 }}
+          github-token: ${{ secrets.ISSUE_OPS_4 }}
           script: |            
             bodySplit = context.payload.issue.body.split("\n")
             console.log("New repository name: " + bodySplit[2])
