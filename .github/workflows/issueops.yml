@@ -10,7 +10,7 @@ jobs:
     steps:
       # PAT requires at least admin:org, repo       
       - name: Create GitHub repo
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.ISSUE_OPS_5 }}
           script: |            
