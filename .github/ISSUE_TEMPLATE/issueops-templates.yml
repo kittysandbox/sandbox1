@@ -22,19 +22,18 @@ body:
     attributes:
       label: Template Repository
       description: Select Template Repository that you want to use
-      options: # list of exisiting repo templates available in the organisation
+      options: # list of existing repo templates in the organisation
         - repo-template1
     validations:
       required: true
-  - type: input
+  - type: dropdown
     id: team
     attributes:
       label: Team Permission
       description: Type in the teams that you want to apply the admin permission. Separate team names by comma
-      placeholder: ex. Team-1, Team-2
-      options: # list of exisiting teams in the organisation
+      options: # list of existing teams in the organisation
         - team-ai-developers
-        - team-ux-developers
+        - team-u-developers
         - team-iot-developers
     validations:
       required: true
