@@ -16,21 +16,17 @@ jobs:
           github-token: ${{ secrets.ISSUE_OPS_6 }}
           script: |            
             bodySplit = context.payload.issue.body.split("\n")
-            console.log("New repository name: " + bodySplit[2])
-            console.log("Template Repository: " + bodySplit[6])
-            console.log("Team: " + bodySplit[10])
-            console.log("Enable Issue: " +  bodySplit[14].includes("X"))
-            console.log("Enable Project: " +  bodySplit[18].includes("X"))
-            console.log("Allow Squash Merge: " +  bodySplit[22].includes("X"))
-            console.log("Allow Forking: " +  bodySplit[26].includes("X"))
+            console.log("New repository name: " + bodySplit[1])
+            console.log("Template Repository: " + bodySplit[4])
+            console.log("Team: " + bodySplit[7])
+            console.log("Enable Issue: " +  bodySplit[10])
+            console.log("Allow Squash Merge: " +  bodySplit[13])
 
-            let newRepo = bodySplit[2]
-            let templateRepo = bodySplit[6]
-            let teams = bodySplit[10].split(",")
-            let enableIssue = bodySplit[14].includes("X")
-            let enableProject = bodySplit[18].includes("X")
-            let enableSquashMerge = bodySplit[22].includes("X")
-            let enableForking = bodySplit[26].includes("X")
+            let newRepo = bodySplit[1]
+            let templateRepo = bodySplit[4]
+            let teams = bodySplit[7].split(",")
+            let enableIssue = bodySplit[10]
+            let enableSquashMerge = bodySplit[13]
             
             console.log("Calling GitHub API to create new repo: " + newRepo + " Template Repo: " + templateRepo + " Teams: " + teams)
             
@@ -56,14 +52,14 @@ jobs:
                 private: true,
                 repo: newRepo,
                 has_issues: enableIssue,
-                has_projects: enableProject,
+                has_projects: enableIssue,
                 allow_squash_merge: enableSquashMerge
               })
             } catch(err) {
                 throw err 
             }
             console.log("Enabled Issue: " + enableIssue)
-            console.log("Enabled Project: " + enableProject)
+            console.log("Enabled Project: " + enableIssue)
             
             try {
               await github.rest.repos.updateBranchProtection({
